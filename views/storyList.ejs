@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<a href="/users/home">Home</a>
+
+<h1>Welcome!</h1>
+
+<% story.forEach(story => { %>
+<a href="/stories/<%= story.id %>">
+    <h2><%= story.title %></h2>
+</a>
+<% }) %>
