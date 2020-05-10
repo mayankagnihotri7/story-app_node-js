@@ -1,0 +1,6 @@
+<form action="/stories/<%= story.id %>/edit" method="post">
+    <input type="text" name="title" value="<%= story.title %>">
+    <input type="text" name="description" value="<%= story.description %>">
+    <input type="text" name="location" value="<%= story.location %>">
+    <input type="submit" value="Update Story">
+</form>

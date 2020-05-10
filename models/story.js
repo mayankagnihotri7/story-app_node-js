@@ -15,7 +15,7 @@ let storySchema = new Schema({
         type: String,
         required: true
     },
-    commentId: [{
+    comments: [{
         type: Schema.Types.ObjectId,
         ref: 'Comment'
     }]

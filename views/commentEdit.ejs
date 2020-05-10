@@ -1,0 +1,5 @@
+<form action="/comments/<%= comment.id %>/edit" method="post">
+    <input type="text" name="author" value="<%= comment.author %>">
+    <input type="text" name="content" value="<%= comment.content %>">
+    <input type="submit" value="Update">
+</form>
