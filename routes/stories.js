@@ -18,9 +18,11 @@ router.post('/new', (req,res,next) => {
 
 // Get list.
 router.get('/storyList', (req,res) => {
+    var { username } = req.session;
+    console.log(req.session, 'Session started!');
     Story.find({}, (err,story) => {
         if (err) return next(err);
-        res.render('storyList', {story});
+        res.render('storyList', {story, username});
     })
 })
 
@@ -75,5 +77,18 @@ router.get('/:id/delete', (req,res,next) => {
         res.redirect('/stories/storyList');
     })
 })
+
+// Logout.
+// router.get('/logout', (req,res, next) => {
+//     if (req.session) {
+//         req.session.destroy(function(err) {
+//             if (err) {
+//                 return next (err);
+//             } else {
+//                 return res.redirect('/users/home');
+//             }
+//         })
+//     }
+// })
 
 module.exports = router;
