@@ -78,17 +78,4 @@ router.get('/:id/delete', (req,res,next) => {
     })
 })
 
-// Logout.
-// router.get('/logout', (req,res, next) => {
-//     if (req.session) {
-//         req.session.destroy(function(err) {
-//             if (err) {
-//                 return next (err);
-//             } else {
-//                 return res.redirect('/users/home');
-//             }
-//         })
-//     }
-// })
-
 module.exports = router;

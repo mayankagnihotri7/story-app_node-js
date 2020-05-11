@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var session = require('express-session');
+var auth = require('./middlewares/auth');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -41,6 +42,8 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use(auth.checkUserLogged);
+app.use(auth.userInfo);
 app.use('/stories', storiesRouter);
 app.use('/comments', commentsRouter);
 

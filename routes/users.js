@@ -35,18 +35,24 @@ router.post('/register', (req,res, next) => {
 router.post('/login', (req,res,next) => {
   let {username, password} = req.body;
   Register.findOne({ username }, (err, user) => {
-    if (err) return next (err);
-    if (!user) {
-      return res.redirect('/users/login');
-    }
-    if (!user.verify(password)) {
-      return res.redirect('/users/login');
-    } else {
+      if (err) return next (err);
       req.session.userId = user.id;
       req.session.username = user.username;
       return res.redirect("/stories/storyList");
-    }
   })
+})
+
+// Logout.
+router.get('/logout', (req,res, next) => {
+    if (req.session.userId) {
+        req.session.destroy(function(err) {
+            if (err) {
+                return res.redirect("/users/login");
+            } else {
+                return res.redirect('/users/login');
+            }
+        })
+    }
 })
 
 module.exports = router;
