@@ -10,7 +10,7 @@ let storySchema = new Schema({
         type: String,
         required: true
     },
-    author: String,
+    author: {type: Schema.Types.ObjectId, ref: 'Register', required: true},
     description: {
         type: String,
         required: true

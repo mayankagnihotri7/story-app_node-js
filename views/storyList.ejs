@@ -4,10 +4,15 @@
 <a href="/users/logout">Logout</a>
 
 <h1>Welcome!</h1>
-<h4><%= user.username %></h4>
+<h2><%= user.username %></h2>
 
 <% story.forEach(story => { %>
 <a href="/stories/<%= story.id %>">
     <h2><%= story.title %></h2>
+
+    <% if (story.author.id.toString() === user.id.toString()) { %>
+        <a href="/stories/<%= story.id %>/delete">Delete</a>
+    <% } %>
 </a>
+<h2><%= story.author.username %></h2>
 <% }) %>
