@@ -10,6 +10,8 @@ router.get('/new', (req,res) => {
 
 // Submit the creation form.
 router.post('/new', (req,res,next) => {
+    req.body.userId = req.session.userId;
+    req.body.author = res.locals.user.username;
     Story.create(req.body, (err, story) => {
         if (err) return next (err);
         res.render('readStory', {story});
@@ -22,7 +24,7 @@ router.get('/storyList', (req,res) => {
     console.log(req.session, 'Session started!');
     Story.find({}, (err,story) => {
         if (err) return next(err);
-        res.render('storyList', {story, username});
+        res.render('storyList', {story});
     })
 })
 
@@ -60,7 +62,6 @@ router.post('/:id', (req,res,next) => {
     Comment.create(req.body, (err,comment) => {
         if (err) next (err);
         Story.findByIdAndUpdate(id, {$push: {comments: comment.id}}, (err, data) => {
-            console.log(id, 'received');
             if (err) return next (err);
             res.redirect(`/stories/${id}`);
         })
