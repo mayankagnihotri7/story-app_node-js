@@ -1,7 +1,14 @@
-<a href="/users/home">Home</a>
+<link rel="stylesheet" href="/stylesheets/style.css">
 
-<form action="/users/login" method="post">
-    <input type="text" name="username" placeholder="Enter username...">
-    <input type="password" name="password" placeholder="Enter Password...">
-    <input type="submit" value="Login">
-</form>
+<div class="box">
+
+    <form action="/users/login" method="post">
+        <label for="name">Username</label><br>
+        <input type="text" name="username" placeholder="Enter username..."><br>
+        <label for="password">Password</label><br>
+        <input type="password" name="password" placeholder="Enter Password..."><br>
+        <input type="submit" value="Login">
+    </form>
+    
+    <a href="/users/home">Home</a>
+</div>

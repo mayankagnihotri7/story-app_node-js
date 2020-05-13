@@ -1,5 +1,12 @@
-<form action="/comments/<%= comment.id %>/edit" method="post">
-    <input type="text" name="author" value="<%= comment.author %>">
-    <input type="text" name="content" value="<%= comment.content %>">
-    <input type="submit" value="Update">
-</form>
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<button class="button2"><a href="/users/home">Home</a></button>
+<button class="button2"><a href="/stories/storyList">Read Stories</a></button>
+
+<div class="edit_article-flex">
+    <form action="/comments/<%= comment.id %>/edit" method="post">
+        <input type="text" name="author" value="<%= comment.author %>" class="edit-article">
+        <textarea name="content" cols="30" rows="10" class="edit-article"><%= comment.content %></textarea>
+        <input type="submit" value="Update">
+    </form>
+</div>

@@ -11,7 +11,6 @@ router.get("/new", (req, res) => {
 // Submit the creation form.
 router.post("/new", (req, res, next) => {
   req.body.author = req.userId;
-  // req.body.author = res.locals.user.username;
   Story.create(req.body, (err, story) => {
     if (err) return next(err);
     res.render("readStory", { story });
@@ -20,11 +19,6 @@ router.post("/new", (req, res, next) => {
 
 // Get list.
 router.get("/storyList", (req, res, next) => {
-  // var { username } = req.session;
-  // Story.find({}, (err,story) => {
-  //     if (err) return next(err);
-  //     res.render('storyList', {story});
-  // })
   Story.find({})
     .populate("author")
     .exec((err, story) => {

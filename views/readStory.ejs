@@ -1,34 +1,39 @@
 <link rel="stylesheet" href="/stylesheets/style.css">
 
-<a href="/users/home">Home</a>
-<a href="/stories/<%= story.id %>/edit">Edit</a>
-<a href="/stories/<%= story.id %>/delete">Delete</a>
+<button class="button2"><a href="/users/home">Home</a></button>
+<button class="button2"><a href="/stories/storyList">Read Stories</a></button>
+<button class="button2"><a href="/stories/<%= story.id %>/edit">Edit</a></button>
 
-<h1>Happy Reading...</h1>
 
-<h2>Title:</h2>
-<h2><%= story.title %></h2>
+<div class="story-details all-centre">
+    <h2>Title:</h2>
+    <p><%= story.title %></p>
 
-<h2>Location:</h2>
-<h3><%= story.location %></h3>
+    <h2>Location:</h2>
+    <p><%= story.location %></p>
 
-<h2>Written by:</h2>
-<h3><%= user.username %></h3>
+    <h2>Written by:</h2>
+    <p><%= user.username %></p>
 
-<h2>Description:</h2>
-<h2><%= story.description %></h2>
+    <h2>Description:</h2>
+    <p><%= story.description %></p>
+</div>
 
+<div class="story-details all-centre">
 <h2>Comments:</h2>
-
 <form action="/stories/<%= story.id %>" method="post">
-    <input type="text" name="author" placeholder="Enter author...">
-    <input type="text" name="content" placeholder="Content here...">
+    <input type="text" name="author" placeholder="Enter author..." class="comment-input">
+    <textarea name="content" cols="30" rows="10" class="comment-input" placeholder="Content here..."></textarea>
     <input type="submit" value="Comment">
 </form>
 
 <% story.comments.forEach(comment => { %>
     <h3><%= comment.content %></h3>
     <h4><%= comment.author %></h4>
-    <a href="/comments/<%= comment.id %>/edit">Edit</a>
-    <a href="/comments/<%= comment.id %>/delete">Delete</a>
+    <% console.log(comment.author,"comment",user.username)%>
+    <% if(comment.author.toString() === user.username.toString()) { %>
+        <a href="/comments/<%= comment.id %>/edit">Edit</a>
+        <a href="/comments/<%= comment.id %>/delete">Delete</a>
+    <% } %>
 <% }) %>
+</div>

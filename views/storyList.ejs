@@ -1,18 +1,20 @@
 <link rel="stylesheet" href="/stylesheets/style.css">
 
-<a href="/users/home">Home</a>
-<a href="/users/logout">Logout</a>
+<button class="button2"><a href="/users/home">Home</a></button>
+<button class="button2"><a href="/users/logout">Logout</a></button>
 
-<h1>Welcome!</h1>
-<h2><%= user.username %></h2>
+<div class="all-centre">
+<h2>Welcome!</h2>
+<h3><%= user.username %></h3>
 
 <% story.forEach(story => { %>
 <a href="/stories/<%= story.id %>">
     <h2><%= story.title %></h2>
 
     <% if (story.author.id.toString() === user.id.toString()) { %>
-        <a href="/stories/<%= story.id %>/delete">Delete</a>
+    <a href="/stories/<%= story.id %>/delete">Delete</a>
     <% } %>
 </a>
 <h2><%= story.author.username %></h2>
 <% }) %>
+</div>

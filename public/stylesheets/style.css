@@ -1,8 +1,344 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+} */
+
+/* ===================================================== My CSS ================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #10151B;
+  background: url('../images/Website-Design-Background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+  line-height: .95;
+  color: #66fcf1;
+  font-weight: 900;
+  font-size: 150px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.center {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 581px;
+  height: 50%;
+}
+
+.btn {
+  margin: 0 auto;
+  width: 170px;
+  height: 60px;
+  padding: 6px 0 0 3px;
+  border: 2px solid #66fcf1;
+  border-radius: 2px;
+  background: none;
+  font-size: 16px;
+  line-height: 54px;
+  color: #fff;
+  letter-spacing: .25em;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  vertical-align: middle;
+  text-align: center;
+  transition: background .4s, color .4s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #66fcf1;
+  color: #10151B;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  color: blue;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.home-button {
+  text-decoration: none;
+  font-size: 20px;
+  color: blanchedalmond;
+}
+
+/* Register Form */
+#signup-box {
+  background-color: #fff;
+  opacity: 0.8;
+  border-radius: 30px;
+  box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.20);
+  text-align: center;
+  height: 70%;
+  max-width: 422px;
+  width: 45%;
+  margin: 0 auto;
+  padding-top: 3px;
+}
+
+.align-centre {
+  justify-content: center;
+  align-items: center;
+}
+
+#signup-box h1 {
+  color: #ff0844;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 40px;
+}
+
+#signup-box p {
+  color: #222;
+  font-size: 1.6rem;
+  margin: 5px 0 30px 0;
+  padding: 0 15%;
+}
+
+#signup-form {
+  width: 70%;
+  margin: auto;
+  text-align: left;
+  font-size: 14px;
+}
+
+#signup-form label {
+  color: #222;
+  font-weight: 700;
+  padding-left: 10px;
+}
+
+#signup-form input {
+  height: 35px;
+  width: calc(100% - 10px);
+  border: 1px solid #b4b4b4;
+  border-radius: 5px;
+  margin: 6px 0 20px 0;
+  padding-left: 10px;
+  outline: none;
+}
+
+#signup-form input::placeholder {
+  color: #b4b4b4;
+}
+
+#signup-form button {
+  background-image: linear-gradient(-45deg, #ff0844 0%, #ffb199 100%);
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  height: 45px;
+  width: 100px;
+  display: block;
+  margin: auto;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+#signup-form button:hover {
+  background-image: linear-gradient(45deg, #ff0844 0%, #ffb199 100%);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* Login Form */
+
+.box
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.5);
+  border-radius: 10px;
+}
+
+.box:hover {
+  background: rgba(0,0,0,.8);
+}
+
+.box h2
+{
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.box .inputBox
+{
+  position: relative;
+}
+
+.box .inputBox input
+{
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.box .inputBox label
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label
+{
+  top: -18px;
+  left: 0;
+  color: #03a9f4;
+  font-size: 12px;
+}
+
+.box input[type="submit"]
+{
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #03a9f4;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Home Buttons */
+
+.button2{
+  border:none;
+  background:pink;
+  padding:12px 35px;
+  border-radius:20px;
+  color:white;
+  font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition: all 0.5s;
+  display: block;
+  margin-top: 10px;
+  opacity: 0.85;
+  outline: none;
+}
+
+.button2:hover{
+  opacity:.55;
+}
+
+a {
+  text-decoration: none;
+}
+
+.all-centre {
+  text-align: center;
+}
+
+/* Story Details */
+.story-details {
+  padding: 2rem 1rem 1rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 15px 25px rgba(0,0,0,.5);
+  border-radius: 30px;
+}
+
+.story-details > h2 {
+  text-decoration: underline;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.story-details > h3 {
+  font-size: 16px;
+  color: lavender;
+}
+
+.story-details > p {
+  font-size: 16px;
+  font-style: oblique;
+  font-weight: 300;
+  color: gold;
+}
+
+/* Edit Story */
+.edit-article {
+  display: block;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+  border: none;
+  background-color: transparent;
+  box-shadow: 0 1px 0 0 blue;
+  outline: none;
+  width: 100%;
+}
+
+.edit_article-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+/* Comments */
+.comment-input {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  margin: 1rem 0;
+  padding: 8px;
+  padding-top: 1rem;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #555555;
+  background: transparent;
 }

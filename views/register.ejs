@@ -1,8 +1,16 @@
-<a href="/users/home">Home</a>
+<link rel="stylesheet" href="/stylesheets/style.css">
 
-<form action="/users/register" method="post">
-    <input type="text" name="username" placeholder="Enter username...">
-    <input type="email" name="email" placeholder="Enter email...">
-    <input type="password" name="password" placeholder="Enter Password...">
-    <input type="submit" value="Register">
-</form>
+<section id="signup-box">
+        <h1>Create your account</h1>
+        <p>let the world read your stories</p>
+        <form action="/users/register" method="post" id="signup-form">
+            <label for="name">Username</label><br>
+            <input type="text" name="username" placeholder="Enter username..."><br>
+            <label for="email">Email</label><br>
+            <input type="email" name="email" placeholder="Enter email..."><br>
+            <label for="password">Password</label><br>
+            <input type="password" name="password" placeholder="Enter Password..."><br>
+            <input type="submit" value="Register">
+        </form>
+        <a href="/users/home">Home</a>
+</section>

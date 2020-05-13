@@ -1,6 +1,13 @@
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<button class="button2"><a href="/users/home">Home</a></button>
+<button class="button2"><a href="/stories/storyList">Read Stories</a></button>
+
+<div class="edit_article-flex">
 <form action="/stories/<%= story.id %>/edit" method="post">
-    <input type="text" name="title" value="<%= story.title %>">
-    <input type="text" name="description" value="<%= story.description %>">
-    <input type="text" name="location" value="<%= story.location %>">
+    <input type="text" name="title" value="<%= story.title %>" class="edit-article">
+    <textarea name="description" cols="30" rows="10" class="edit-article"><%= story.description %></textarea>
+    <input type="text" name="location" value="<%= story.location %>" class="edit-article">
     <input type="submit" value="Update Story">
 </form>
+</div>

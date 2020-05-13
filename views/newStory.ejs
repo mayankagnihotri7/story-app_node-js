@@ -1,8 +1,13 @@
-<a href="/users/home">Home</a>
+<link rel="stylesheet" href="/stylesheets/style.css">
 
-<form action="/stories/new" method="post">
-    <input type="text" name="title" placeholder="Enter title...">
-    <input type="text" name="description" placeholder="Enter description...">
-    <input type="text" name="location" placeholder="Where did it take place.?">
-    <input type="submit" value="Ready to submit">
-</form>
+<button class="button2"><a href="/users/home">Home</a></button>
+<button class="button2"><a href="/stories/storyList">Read Stories</a></button>
+
+<div class="edit_article-flex">
+    <form action="/stories/new" method="post">
+        <input type="text" name="title" placeholder="Enter title..." class="edit-article">
+        <textarea name="description" cols="30" rows="10" class="edit-article"></textarea>
+        <input type="text" name="location" placeholder="Where did it take place.?" class="edit-article">
+        <input type="submit" value="Ready to submit">
+    </form>
+</div>
