@@ -6,6 +6,10 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var auth = require('./middlewares/auth');
+let passport = require("passport");
+
+require('dotenv').config();
+require('./modules/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -35,10 +39,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Creating session.
 app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true
+  secret: 'keyboard cat', //to hash your cookie.
+  resave: false, //whether to extend session duration.
+  saveUninitialized: false //to create a blank session before logging in.
 }))
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
