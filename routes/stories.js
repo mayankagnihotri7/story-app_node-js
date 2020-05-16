@@ -19,6 +19,7 @@ router.post("/new", (req, res, next) => {
 
 // Get list.
 router.get("/storyList", (req, res, next) => {
+  console.log("in story list")
   Story.find({})
     .populate("author")
     .exec((err, story) => {

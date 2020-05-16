@@ -15,19 +15,22 @@ passport.use(
     // Check whether user exists.
     var newUser = {
       email: profile.emails[0].value,
-      username: profile.displayName,
+      username: profile._json.login,
       password: 'password'
     }
 
     Register.findOne({email: profile.emails[0].value}, (err, user) => {
-      console.log(user, 'hello');
-      if (err) return done(err);
+      // console.log(user, 'hello');
+      if (err) return done(null, false);
       if (!user) {
         Register.create(newUser, (err, user) => {
-          console.log(user, 'this is something new...');
-          return done(null, user);
+          // console.log(user, 'this is something new...')
+          console.log(user,"new user")
+          done(null, user);
         })
-      } return done(null, user);
+      } else {
+        console.log(user,"we are end")
+        done(null, user);}
     })
 
     }
@@ -36,14 +39,12 @@ passport.use(
 
 // serializer.
 passport.serializeUser((user, done) => {
-    console.log(user._id, 'This is username!');
     done(null, user._id);
 })
 
 // deserializer
-passport.deserializeUser((username,done) => {
-  Register.findById(username, (err, user) => {
-    if (err) return done(err);
-  return done (null, user);
-  })
+passport.deserializeUser((id,done) => {
+  var user ={email: "mayank@gmail.com", username:"mayank"};
+     // console.log(user, 'this is found data...')
+    done (null, user);
 })

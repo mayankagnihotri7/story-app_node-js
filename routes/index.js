@@ -13,7 +13,8 @@ router.get('/auth/github', passport.authenticate('github'));
 // Handle success or failure conditions.
 router.get('/auth/github/callback', passport.authenticate('github', {failureRedirect: '/users/login'}), (req,res) => {
   // console.log(res, 'response received..');
-  res.redirect('/stories/storyList');
+  // res.send('this is working fine.')
+   res.redirect('/stories/storyList');
 });
 
 module.exports = router;

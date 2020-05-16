@@ -9,6 +9,8 @@ router.get('/', function(req, res, next) {
 
 // Home Page.
 router.get('/home', (req,res) => {
+  console.log('we are in home')
+  console.log(req.session,"session is found")
   res.render('home');
 })
 
@@ -33,12 +35,13 @@ router.post('/register', (req,res, next) => {
 
 // Submit Login form.
 router.post('/login', (req,res,next) => {
-  let {username, password} = req.body;
-  Register.findOne({ username }, (err, user) => {
+  let {username, password, email} = req.body;
+  Register.findOne({ email }, (err, user) => {
       if (err) return next (err);
+      console.log(req.session, 'Hi there.!!!');
       req.session.userId = user.id;
       req.session.username = user.username;
-      return res.redirect("/stories/storyList");
+      res.redirect("/stories/storyList");
   })
 })
 
