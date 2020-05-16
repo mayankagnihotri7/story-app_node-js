@@ -12,9 +12,14 @@ router.get('/auth/github', passport.authenticate('github'));
 
 // Handle success or failure conditions.
 router.get('/auth/github/callback', passport.authenticate('github', {failureRedirect: '/users/login'}), (req,res) => {
-  // console.log(res, 'response received..');
-  // res.send('this is working fine.')
    res.redirect('/stories/storyList');
 });
+
+// Facebook login.
+router.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
+
+router.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/users/login'}), (req,res) => {
+  res.redirect('/stories/storyList');
+})
 
 module.exports = router;
