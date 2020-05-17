@@ -4,8 +4,7 @@ let bcrypt = require('bcrypt');
 
 let registerSchema = new Schema ({
     username: {
-        type: String,
-        unique: true
+        type: String
     },
     email: {
         type: String,

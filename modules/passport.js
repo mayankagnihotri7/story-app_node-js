@@ -13,6 +13,7 @@ passport.use(
       callbackURL: "/auth/github/callback",
     },
     // callback function containing all the data coming from the server.
+
     (accessToken, refreshToken, profile, done) => {
       // Check whether user exists.
       var newUser = {

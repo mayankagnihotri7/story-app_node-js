@@ -18,7 +18,9 @@
     "mongoose": "^5.9.13",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
-    "passport-facebook": "^3.0.0"
+    "passport-facebook": "^3.0.0",
+    "passport-google": "^0.3.0",
+    "passport-google-oauth2": "^0.2.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
